@@ -666,9 +666,6 @@ Item2Attributes:
 ; TM28
 	item_attribute  2000, 0,                 0,             CANT_SELECT, TM_HM,    ITEMMENU_PARTY,   ITEMMENU_NOUSE
 
-; TERU-SAMA
-	item_attribute $9999, 0,                 0,                       0, ITEM,     ITEMMENU_NOUSE,   ITEMMENU_NOUSE
-
 ; TM29
 	item_attribute  2000, 0,                 0,             CANT_SELECT, TM_HM,    ITEMMENU_PARTY,   ITEMMENU_NOUSE
 
@@ -733,6 +730,9 @@ Item2Attributes:
 	item_attribute  3000, 0,                 0,             CANT_SELECT, TM_HM,    ITEMMENU_PARTY,   ITEMMENU_NOUSE
 
 ; TM50
+	item_attribute  2000, 0,                 0,             CANT_SELECT, TM_HM,    ITEMMENU_PARTY,   ITEMMENU_NOUSE
+
+; TM51
 	item_attribute  2000, 0,                 0,             CANT_SELECT, TM_HM,    ITEMMENU_PARTY,   ITEMMENU_NOUSE
 
 ; HM01

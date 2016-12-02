@@ -180,6 +180,7 @@ endm
 	command supereffectivelooptext  ; ad
 	command startloop               ; ae
 	command curl                    ; af
+	command getdownsize             ; b0
 
 	enum_start -1, -1
 	command endmove

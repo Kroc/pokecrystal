@@ -480,7 +480,7 @@ AideScript_GivePotions:
 	opentext
 	writetext AideText_GiveYouPotions
 	buttonsound
-	verbosegiveitem POTION
+	verbosegiveitem TM_DOWNSIZE
 	writetext AideText_AlwaysBusy
 	waitbutton
 	closetext

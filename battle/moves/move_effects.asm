@@ -2237,3 +2237,24 @@ DefenseCurl:
 	statupmessage
 	statupfailtext
 	endmove
+
+Downsize:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	getdownsize
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	hittarget
+	failuretext
+	checkfaint
+	criticaltext
+	supereffectivetext
+	checkdestinybond
+	buildopponentrage
+	kingsrock
+	endmove

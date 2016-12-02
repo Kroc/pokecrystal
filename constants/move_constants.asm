@@ -252,14 +252,14 @@
 	const ROCK_SMASH   ; $f9
 	const WHIRLPOOL    ; $fa
 	const BEAT_UP      ; $fb
+	const DOWNSIZE     ; $fc
 
 const_value SET const_value + -1
 
-	const NUM_ATTACKS  ; $fb
+	const NUM_ATTACKS  ; $fc
 
 ; Battle animations use the same constants
 ; as the moves up to this point.
-	const ANIM_FC                ; $fc
 	const ANIM_FD                ; $fd
 	const ANIM_FE                ; $fe
 	const ANIM_SWEET_SCENT_2     ; $ff

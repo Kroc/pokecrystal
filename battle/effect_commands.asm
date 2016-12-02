@@ -6289,6 +6289,40 @@ BattleCommand_Curl: ; 365a7
 
 ; 365af
 
+BattleCommand_GetDownsize:
+; getdownsize
+	push bc
+	ld a, [hBattleTurn]
+	and a
+	jr z, .players_turn
+.enemys_turn
+	ld a, [BattleMonLevel]
+	ld b, a
+	ld a, [EnemyMonLevel]
+	jr .initial_level_check
+.players_turn
+	ld a, [EnemyMonLevel]
+	ld b, a
+	ld a, [BattleMonLevel]
+.initial_level_check
+	cp b
+	jr c, .done
+	sub b
+	cp 10
+	jr c, .gap_0_to_9
+	cp 20
+	jr c, .gap_10_to_19
+	ld d, 180
+	jr .done
+.gap_0_to_9
+	ld d, 90
+	jr .done
+.gap_10_to_19
+	ld d, 120
+.done
+	pop bc
+	ret
+
 
 BattleCommand_RaiseSubNoAnim: ; 365af
 	ld hl, GetMonBackpic

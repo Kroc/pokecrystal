@@ -96,6 +96,7 @@ TMHMMoves: ; 1167a
 	db FIRE_PUNCH
 	db FURY_CUTTER
 	db NIGHTMARE
+	db DOWNSIZE
 	db CUT
 	db FLY
 	db SURF

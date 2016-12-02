@@ -220,7 +220,6 @@
 	add_tm EARTHQUAKE   ; $D9
 	add_tm RETURN       ; $DA
 	add_tm DIG          ; $DB
-	const ITEM_DC       ; $DC
 	add_tm PSYCHIC      ; $DD
 	add_tm SHADOW_BALL  ; $DE
 	add_tm MUD_SLAP     ; $DF
@@ -243,7 +242,8 @@
 	add_tm FIRE_PUNCH   ; $F0
 	add_tm FURY_CUTTER  ; $F1
 	add_tm NIGHTMARE    ; $F2
-NUM_TMS = const_value - TM01 - 2
+	add_tm DOWNSIZE     ; $DC
+NUM_TMS = const_value - TM01 - 1
 
 	add_hm CUT          ; $F3
 	add_hm FLY          ; $F4

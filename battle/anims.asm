@@ -251,7 +251,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_RockSmash
 	dw BattleAnim_Whirlpool
 	dw BattleAnim_BeatUp
-	dw BattleAnim_252
+	dw BattleAnim_Downsize
 	dw BattleAnim_253
 	dw BattleAnim_254
 	dw BattleAnim_SweetScent2
@@ -2673,6 +2673,7 @@ BattleAnim_DrillPeck: ; ca6a0
 	anim_ret
 ; ca6cc
 
+BattleAnim_Downsize:
 BattleAnim_Guillotine: ; ca6cc
 	anim_1gfx ANIM_GFX_CUT
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $10
