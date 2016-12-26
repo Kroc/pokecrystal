@@ -2280,6 +2280,17 @@ GameTimeFrames:: ; d4c8
 CurDay:: ; d4cb
 	ds 1
 
+;; Kroc - noRTC Patch
+;; backup of the fake RTC's contents:
+IF DEF(NO_RTC)
+wNoRTC::
+wNoRTCDayHi:: ds 1	;; = hRTCDayHi          EQU $ff8d
+wNoRTCDayLo:: ds 1	;; = hRTCDayLo          EQU $ff8e
+wNoRTCHours:: ds 1	;; = hRTCHours          EQU $ff8f
+wNoRTCMinutes:: ds 1	;; = hRTCMinutes        EQU $ff90
+wNoRTCSeconds:: ds 1	;; = hRTCSeconds        EQU $ff91
+ENDC
+	
 	ds 1
 wObjectFollow_Leader:: ds 1
 wObjectFollow_Follower:: ds 1

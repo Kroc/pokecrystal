@@ -23,11 +23,19 @@ UpdateTime:: ; 5a7
 GetClock:: ; 5b7
 ; store clock data in hRTCDayHi-hRTCSeconds
 
-; enable clock r/w
+;; kroc - NoRTC patch
+IF DEF(NO_RTC)
+	;; pull RTC time from the copy in RAM which is being incremented alongside the game timer
+	ld hl, wNoRTC
+	ld de, hRTCDayHi
+	ld bc, 5
+	jp CopyBytes
+ELSE
+	; enable clock r/w
 	ld a, SRAM_ENABLE
 	ld [MBC3SRamEnable], a
 
-; clock data is 'backwards' in hram
+	; clock data is 'backwards' in hram
 
 	call LatchClock
 	ld hl, MBC3SRamBank
@@ -56,10 +64,11 @@ GetClock:: ; 5b7
 	ld a, [de]
 	ld [hRTCDayHi], a
 
-; unlatch clock / disable clock r/w
+	; unlatch clock / disable clock r/w
 	call CloseSRAM
 	ret
 ; 5e8
+ENDC
 
 
 FixDays:: ; 5e8
@@ -217,43 +226,52 @@ PanicResetClock:: ; 67e
 
 SetClock:: ; 691
 ; set clock data from hram
-
-; enable clock r/w
+;; kroc - noRTC patch
+IF DEF(NO_RTC)
+	;; take the data from the copy in RAM that gets saved/loaded in SRAM,
+	;; this gets incremented along with the game timer
+	ld hl, hRTCDayHi
+	ld de, wNoRTC
+	ld bc, 5
+	jp CopyBytes
+ELSE
+	; enable clock r/w
 	ld a, SRAM_ENABLE
 	ld [MBC3SRamEnable], a
 
-; set clock data
-; stored 'backwards' in hram
+	; set clock data
+	; stored 'backwards' in hram
 
 	call LatchClock
 	ld hl, MBC3SRamBank
 	ld de, MBC3RTC
 
-; seconds
+	; seconds
 	ld [hl], RTC_S
 	ld a, [hRTCSeconds]
 	ld [de], a
-; minutes
+	; minutes
 	ld [hl], RTC_M
 	ld a, [hRTCMinutes]
 	ld [de], a
-; hours
+	; hours
 	ld [hl], RTC_H
 	ld a, [hRTCHours]
 	ld [de], a
-; day lo
+	; day lo
 	ld [hl], RTC_DL
 	ld a, [hRTCDayLo]
 	ld [de], a
-; day hi
+	; day hi
 	ld [hl], RTC_DH
 	ld a, [hRTCDayHi]
 	res 6, a ; make sure timer is active
 	ld [de], a
 
-; cleanup
+	; cleanup
 	call CloseSRAM ; unlatch clock, disable clock r/w
 	ret
+ENDC
 ; 6c4
 
 
